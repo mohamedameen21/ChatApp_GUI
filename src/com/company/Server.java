@@ -27,7 +27,7 @@ public class Server extends JFrame implements ActionListener {
     static DataOutputStream dataOutputStream;
 
     static String serverName = "Ameen";
-    static String clientName = "Keerthana";
+    static String clientName = "Bunty";
 
     Server() {
 
@@ -36,6 +36,8 @@ public class Server extends JFrame implements ActionListener {
         addingItemsToTitleBar();
 //        getContentPane().setBackground(Color.WHITE); //Change the colour of the entire pane or frmae
         addingChatAreaAndFieldAndSendButton();
+
+        this.getRootPane().setDefaultButton(sendButton);
 
     }
 
