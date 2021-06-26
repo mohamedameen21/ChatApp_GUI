@@ -8,5 +8,7 @@ public class Main {
         System.out.println("\uD83D\uDE05");
         new Server().setVisible(true);
         new Client().setVisible(true);
+        String name = "<strong>Ameen</strong>";
+        System.out.println(name);
     }
 }

@@ -23,6 +23,10 @@ public class Client extends JFrame implements ActionListener {
     static DataInputStream dataInputStream;
     static DataOutputStream dataOutputStream;
 
+    static String serverName = "Ameen";
+    static String clientName = "Keerthana";
+
+
     Client() {
 
         FrameBasic(); //Setting Frame Basic
@@ -73,7 +77,7 @@ public class Client extends JFrame implements ActionListener {
         dpIconLabel.setBounds(40, 2, 60, 50);
         p1.add(dpIconLabel);
 
-        JLabel displayName = new JLabel("Keerthana");
+        JLabel displayName = new JLabel(clientName);
         displayName.setFont(new Font("SAN_SERIF", Font.BOLD, 15));
         displayName.setForeground(Color.WHITE);
         displayName.setBounds(110, 13, 150, 16);
@@ -123,9 +127,9 @@ public class Client extends JFrame implements ActionListener {
         String message = chatField.getText();
         chatField.setText("");
 //        chatArea.setForeground(Color.WHITE); //For dark mode
-        chatArea.append("\t" + message + "\n");
+        chatArea.append("You" + ": " + message + "\n");
         try {
-            dataOutputStream.writeUTF(message);
+            dataOutputStream.writeUTF(message + "\n");
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
@@ -144,7 +148,7 @@ public class Client extends JFrame implements ActionListener {
 
             while (true) {
                 messageInput = dataInputStream.readUTF();
-                chatArea.setText(chatArea.getText() + "\n" + messageInput);
+                chatArea.setText(chatArea.getText() + serverName + ": " + messageInput);
             }
 
         } catch (Exception e) {
